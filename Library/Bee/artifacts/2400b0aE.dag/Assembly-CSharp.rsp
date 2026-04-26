@@ -446,7 +446,8 @@
 -analyzer:"/home/omar/Unity/Hub/Editor/6000.3.2f1/Editor/Data/Tools/BuildPipeline/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"/home/omar/Unity/Hub/Editor/6000.3.2f1/Editor/Data/Tools/BuildPipeline/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"/home/omar/Unity/Hub/Editor/6000.3.2f1/Editor/Data/Tools/BuildPipeline/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
-"Assets/TutorialInfo/Readme.cs"
+"Assets/Scripts/CaveGenerator.cs"
+"Assets/Scripts/MeshGenerator.cs"
 -langversion:9.0
 /deterministic
 /optimize+
