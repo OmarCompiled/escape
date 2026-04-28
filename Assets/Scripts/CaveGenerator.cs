@@ -4,47 +4,59 @@ using UnityEngine;
 
 public class CaveGenerator : MonoBehaviour
 {
-	public int m_Width = 160;
-	public int m_Height = 90;
+	public int 		m_Width = 160;
+	public int 		m_Height = 90;
+	public float 	m_WallHeight = 5;
 
-	public  string m_Seed;
-	// public bool m_UseRandomSeed = false;
+	public string 	m_Seed;
+	public bool 	m_UseRandomSeed = false;
 
-	//[Range(0, 100)]
+	[SerializeField, Range(0, 100)]
 	private int m_FillPercentage = 48;
-	//[Range(0, 25)]
+
+	[SerializeField, Range(0, 25)]
 	private int m_SmoothCount = 15;
 
-	private int[,] m_Map;
-	private MeshGenerator m_MeshGenerator;
-	private System.Random m_PseudoRNG;
-	private MeshFilter m_MeshFilter;
-	private Mesh m_Mesh;
+	private int[,] 			m_Map;
+	private MeshGenerator 	m_MeshGenerator;
+	private MeshFilter 		m_MapMeshFilter;
+	private MeshFilter		m_WallMeshFilter;
+	private System.Random 	m_PseudoRNG;
 
 	void Start()
 	{
-		m_Seed = "NULL";
+		m_Seed 			= "NULL";
 		m_MeshGenerator = GetComponent<MeshGenerator>();
-		m_MeshFilter = GetComponent<MeshFilter>();
 		GenerateMap();
+	}
+
+	void Update()
+	{
+		if(Input.GetMouseButtonDown(0))
+		{
+			GenerateMap();
+		}
 	}
 	
 	// Cellular Automata; much like Conway's game of life :)
 	// The behaviour depends on the set of rules used.
     void GenerateMap()
 	{
-		m_Map = null;
-		m_Map = new int[m_Width, m_Height];
+		m_Map 				= null;
+		m_Map 				= new int[m_Width, m_Height];
+		m_MapMeshFilter 	= GetComponent<MeshFilter>();
+		m_WallMeshFilter	= GetComponentInChildren<MeshFilter>();
 		FillMap();
 		SmoothMap();
 		// some Mesh = GenerateMesh();
-		m_Mesh = m_MeshGenerator?.GenerateMesh(m_Map, 1.0f);
-		m_MeshFilter.mesh = m_Mesh;
+		m_MeshGenerator?.GenerateMesh(m_Map, 1.0f, m_WallHeight);
+		m_MapMeshFilter.mesh 	= m_MeshGenerator.m_MapMesh;
+		m_WallMeshFilter.mesh	= m_MeshGenerator.m_WallMesh;
 	}
 
 	void FillMap()
 	{	
-		// if(m_UseRandomSeed) m_Seed = (Time.time + Time.deltaTime).ToString();
+		if(m_UseRandomSeed) m_Seed = (Time.time + Time.deltaTime).ToString();
 		m_PseudoRNG ??= new System.Random(m_Seed.GetHashCode());
 		Debug.Log(m_Seed);
 
@@ -105,15 +117,4 @@ public class CaveGenerator : MonoBehaviour
 		}
 		return neighbourWallCount;
 	}
-
-
-    // void OnDrawGizmos() {
-    // 	for(int x = 0; x < width; x++) {
-    // 		for(int y = 0; y < height; y++) {
-    // 			Gizmos.color = (map[x,y] == 1) ? Color.black : Color.white;
-    // 			Vector3 position = new Vector3(-width/2 + x + 0.5f, 0.0f, -height/2 + y + 0.5f);
-    // 			Gizmos.DrawCube(position, Vector3.one);
-    // 		}
-    // 	}
-    // }
 }
