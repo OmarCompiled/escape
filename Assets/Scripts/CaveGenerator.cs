@@ -25,8 +25,10 @@ public class CaveGenerator : MonoBehaviour
 
 	void Start()
 	{
-		m_Seed 			= "NULL";
-		m_MeshGenerator = GetComponent<MeshGenerator>();
+		m_Seed 				= "NULL";
+		m_MeshGenerator		= GetComponent<MeshGenerator>();
+		m_MapMeshFilter 	= GameObject.Find("Map").AddComponent<MeshFilter>();
+		m_WallMeshFilter	= GameObject.Find("Walls").AddComponent<MeshFilter>(); 
 		GenerateMap();
 	}
 
@@ -42,10 +44,7 @@ public class CaveGenerator : MonoBehaviour
 	// The behaviour depends on the set of rules used.
     void GenerateMap()
 	{
-		m_Map 				= null;
-		m_Map 				= new int[m_Width, m_Height];
-		m_MapMeshFilter 	= GetComponent<MeshFilter>();
-		m_WallMeshFilter	= GetComponentInChildren<MeshFilter>();
+		m_Map = new int[m_Width, m_Height];
 		FillMap();
 		SmoothMap();
 		// some Mesh = GenerateMesh();
@@ -57,7 +56,7 @@ public class CaveGenerator : MonoBehaviour
 	void FillMap()
 	{	
 		if(m_UseRandomSeed) m_Seed = (Time.time + Time.deltaTime).ToString();
-		m_PseudoRNG ??= new System.Random(m_Seed.GetHashCode());
+		m_PseudoRNG = new System.Random(m_Seed.GetHashCode()); // Null coalescing will cause unwanted behaviour.
 		Debug.Log(m_Seed);
 
 		for(int x = 0; x < m_Width; x++) {

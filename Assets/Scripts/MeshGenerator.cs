@@ -24,7 +24,7 @@ using UnityEngine.UIElements;
 //
 // Another Very Important NOTE: Unity uses a clock-wise winding order.
 // Not conventional (Like OpenGL).
-public class MeshGenerator : MonoBehaviour
+public class MeshGenerator : MonoBehaviour  
 {
     public SquareGrid                       m_SquareGrid;
 
@@ -147,10 +147,11 @@ public class MeshGenerator : MonoBehaviour
 		// 4 point:
 		case 15:
 			AddSubMeshVertices(square.m_TopLeft, square.m_TopRight, square.m_BottomRight, square.m_BottomLeft);
-            // m_CheckedVertices.Add(square.m_TopLeft.m_VertexIndex);
-            // m_CheckedVertices.Add(square.m_TopRight.m_VertexIndex);
-            // m_CheckedVertices.Add(square.m_BottomRight.m_VertexIndex);
-            // m_CheckedVertices.Add(square.m_BottomLeft.m_VertexIndex);            
+            // No edge nodes are of case 15; They might be quads but not of case 15
+            m_CheckedVerticesSet.Add(square.m_TopLeft.m_VertexIndex);
+            m_CheckedVerticesSet.Add(square.m_TopRight.m_VertexIndex);
+            m_CheckedVerticesSet.Add(square.m_BottomRight.m_VertexIndex);
+            m_CheckedVerticesSet.Add(square.m_BottomLeft.m_VertexIndex);            
 			break;
 		}
     }
@@ -271,16 +272,6 @@ public class MeshGenerator : MonoBehaviour
         return -1; // On failure obviously
     }
 
-    public struct MeshBundle2
-    {
-        Mesh m_MeshA;
-        Mesh m_MeshB;
-
-        public MeshBundle2(Mesh a, Mesh b)
-        {
-            (m_MeshA, m_MeshB) = (a, b);
-        }
-    }
 
     struct Triangle
     {
