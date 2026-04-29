@@ -21,14 +21,24 @@ public class CaveGenerator : MonoBehaviour
 	private MeshGenerator 	m_MeshGenerator;
 	private MeshFilter 		m_MapMeshFilter;
 	private MeshFilter		m_WallMeshFilter;
+	private MeshCollider	m_MapMeshCollider;
+	private MeshCollider	m_WallMeshCollider;
 	private System.Random 	m_PseudoRNG;
-
+	private Transform		m_Plane;
+	private Transform 		m_Ceiling;
 	void Start()
 	{
+		GameObject map 	= GameObject.Find("Map");
+		GameObject walls = GameObject.Find("Walls");
 		m_Seed 				= "NULL";
 		m_MeshGenerator		= GetComponent<MeshGenerator>();
-		m_MapMeshFilter 	= GameObject.Find("Map").AddComponent<MeshFilter>();
-		m_WallMeshFilter	= GameObject.Find("Walls").AddComponent<MeshFilter>(); 
+		m_MapMeshFilter 	= map.AddComponent<MeshFilter>();
+		m_WallMeshFilter	= walls.AddComponent<MeshFilter>(); 
+		m_MapMeshCollider	= map.AddComponent<MeshCollider>();
+		m_WallMeshCollider	= walls.AddComponent<MeshCollider>();
+		m_Plane				= transform.Find("Plane");
+		m_Ceiling			= transform.Find("Ceiling");
+		transform.position 	= new Vector3(500, -5, 650); 
 		GenerateMap();
 	}
 
@@ -44,6 +54,13 @@ public class CaveGenerator : MonoBehaviour
 	// The behaviour depends on the set of rules used.
     void GenerateMap()
 	{
+		m_Plane.localScale 		= new Vector3(m_Width/10, 1.0f, m_Height/10);
+		m_Plane.localPosition 	= -Vector3.up * m_WallHeight;
+
+		m_Ceiling.localScale	= -new Vector3(m_Width/10, 1.0f, m_Height/10);
+		m_Ceiling.position		= transform.position;
+		m_Ceiling.Rotate(Vector3.up, 90);
+
 		m_Map = new int[m_Width, m_Height];
 		FillMap();
 		SmoothMap();
@@ -51,6 +68,8 @@ public class CaveGenerator : MonoBehaviour
 		m_MeshGenerator?.GenerateMesh(m_Map, 1.0f, m_WallHeight);
 		m_MapMeshFilter.mesh 	= m_MeshGenerator.m_MapMesh;
 		m_WallMeshFilter.mesh	= m_MeshGenerator.m_WallMesh;
+		m_MapMeshCollider.sharedMesh 	= m_MeshGenerator.m_MapMesh;
+		m_WallMeshCollider.sharedMesh 	= m_MeshGenerator.m_WallMesh;
 	}
 
 	void FillMap()
