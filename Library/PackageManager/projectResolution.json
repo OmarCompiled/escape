@@ -49,6 +49,16 @@
       "source": "registry",
       "testable": false
     },
+    "com.unity.ide.vscode@1.2.4": {
+      "name": "com.unity.ide.vscode",
+      "displayName": "Visual Studio Code Editor",
+      "resolvedPath": "/home/omar/Repos/Escape/Library/PackageCache/com.unity.ide.vscode@eb5de66d4c77",
+      "fingerprint": "eb5de66d4c77580302e328d62de70e3074f61721",
+      "editorCompatibility": "2019.2.0a12",
+      "version": "1.2.4",
+      "source": "registry",
+      "testable": false
+    },
     "com.unity.inputsystem@1.17.0": {
       "name": "com.unity.inputsystem",
       "displayName": "Input System",
@@ -69,11 +79,31 @@
       "source": "builtin",
       "testable": false
     },
+    "com.unity.render-pipelines.high-definition@17.3.0": {
+      "name": "com.unity.render-pipelines.high-definition",
+      "displayName": "High Definition Render Pipeline",
+      "resolvedPath": "/home/omar/Repos/Escape/Library/PackageCache/com.unity.render-pipelines.high-definition@4809aaa503d4",
+      "fingerprint": "4809aaa503d4bfc875504cad217071ed279b945e",
+      "editorCompatibility": "6000.3.0a1",
+      "version": "17.3.0",
+      "source": "builtin",
+      "testable": false
+    },
     "com.unity.render-pipelines.universal@17.3.0": {
       "name": "com.unity.render-pipelines.universal",
       "displayName": "Universal Render Pipeline",
       "resolvedPath": "/home/omar/Repos/Escape/Library/PackageCache/com.unity.render-pipelines.universal@ec76624224b1",
       "fingerprint": "ec76624224b19cfd74b0bd29e7df71b568c0a138",
+      "editorCompatibility": "6000.3.0a1",
+      "version": "17.3.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.shadergraph@17.3.0": {
+      "name": "com.unity.shadergraph",
+      "displayName": "Shader Graph",
+      "resolvedPath": "/home/omar/Repos/Escape/Library/PackageCache/com.unity.shadergraph@759cfc176571",
+      "fingerprint": "759cfc176571a3bc1520e790cf3f7408141c1f78",
       "editorCompatibility": "6000.3.0a1",
       "version": "17.3.0",
       "source": "builtin",
@@ -427,14 +457,14 @@
       "source": "builtin",
       "testable": false
     },
-    "com.unity.shadergraph@17.3.0": {
-      "name": "com.unity.shadergraph",
-      "displayName": "Shader Graph",
-      "resolvedPath": "/home/omar/Repos/Escape/Library/PackageCache/com.unity.shadergraph@759cfc176571",
-      "fingerprint": "759cfc176571a3bc1520e790cf3f7408141c1f78",
-      "editorCompatibility": "6000.3.0a1",
-      "version": "17.3.0",
-      "source": "builtin",
+    "com.unity.searcher@4.9.4": {
+      "name": "com.unity.searcher",
+      "displayName": "Searcher",
+      "resolvedPath": "/home/omar/Repos/Escape/Library/PackageCache/com.unity.searcher@d45a78918735",
+      "fingerprint": "d45a78918735dd5b1de2247c6e3567c60aa24115",
+      "editorCompatibility": "2019.1.0a1",
+      "version": "4.9.4",
+      "source": "registry",
       "testable": false
     },
     "com.unity.render-pipelines.universal-config@17.0.3": {
@@ -447,14 +477,24 @@
       "source": "builtin",
       "testable": false
     },
-    "com.unity.searcher@4.9.4": {
-      "name": "com.unity.searcher",
-      "displayName": "Searcher",
-      "resolvedPath": "/home/omar/Repos/Escape/Library/PackageCache/com.unity.searcher@d45a78918735",
-      "fingerprint": "d45a78918735dd5b1de2247c6e3567c60aa24115",
-      "editorCompatibility": "2019.1.0a1",
-      "version": "4.9.4",
-      "source": "registry",
+    "com.unity.visualeffectgraph@17.3.0": {
+      "name": "com.unity.visualeffectgraph",
+      "displayName": "Visual Effect Graph",
+      "resolvedPath": "/home/omar/Repos/Escape/Library/PackageCache/com.unity.visualeffectgraph@fc1470f192bb",
+      "fingerprint": "fc1470f192bb75723eabd796c44cee0e5c4c6014",
+      "editorCompatibility": "6000.3.0a1",
+      "version": "17.3.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.render-pipelines.high-definition-config@17.3.0": {
+      "name": "com.unity.render-pipelines.high-definition-config",
+      "displayName": "High Definition Render Pipeline Config",
+      "resolvedPath": "/home/omar/Repos/Escape/Library/PackageCache/com.unity.render-pipelines.high-definition-config@1d0d5298115a",
+      "fingerprint": "1d0d5298115aded595551e86eb120b6815f44d52",
+      "editorCompatibility": "6000.3.0a1",
+      "version": "17.3.0",
+      "source": "builtin",
       "testable": false
     },
     "com.unity.burst@1.8.26": {

@@ -76,3 +76,15 @@ MonoBehaviour:
   - groupType: UnityEngine.TrailRenderer, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     collapsed: 0
+  - groupType: UnityEngine.Rendering.HighDefinition.PlanarReflectionProbe, Unity.RenderPipelines.HighDefinition.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    collapsed: 0
+  - groupType: UnityEngine.ReflectionProbe, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    collapsed: 0
+  - groupType: UnityEngine.Rendering.HighDefinition.DecalProjector, Unity.RenderPipelines.HighDefinition.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    collapsed: 0
+  - groupType: UnityEngine.Rendering.HighDefinition.LocalVolumetricFog, Unity.RenderPipelines.HighDefinition.Runtime,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    collapsed: 0
